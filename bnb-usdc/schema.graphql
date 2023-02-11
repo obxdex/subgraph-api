@@ -1,0 +1,25 @@
+type Trade @entity(immutable: true) {
+  id: String! # block number tracking
+  otype: String! # uint256 converted to sell-buy from 0-1
+  price: BigDecimal! # uint64
+  amountGet: BigDecimal! # uint256
+  amountGive: BigDecimal! # uint256
+  userFill: Bytes! # address
+  userFilled: Bytes! # address
+  timestamp: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+  volumeInQuote: BigDecimal!
+}
+
+type LastPrice @entity(immutable: false) {
+  id: String! # always 01
+  price: BigDecimal #uint256
+}
+
+type DayVolume @entity(immutable: false){
+  id: String! # always 02
+  trackedBlock: BigInt!
+  volumeInQuote: BigDecimal
+}
