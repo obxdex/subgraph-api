@@ -1,0 +1,30 @@
+type Trade @entity(immutable: true) {
+  id: String! # string numbers increment
+  otype: String! # uint256 converted to sell-buy from 0-1
+  price: BigDecimal! # uint64
+  amountGet: BigDecimal! # uint256
+  amountGive: BigDecimal! # uint256
+  userFill: Bytes! # address
+  userFilled: Bytes! # address
+  timestamp: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+  volumeInQuote: BigDecimal!
+}
+
+type Info @entity(immutable: false) {
+  id: String! # always 01
+  lastPrice: BigDecimal! #uint256
+  last24HourVolume: BigDecimal! #updates each 24hour eg 28800 blocks meaning its yesterday 24 hour volume period
+  lastTrackedBlock: BigInt!
+  lastTrackedTrade: BigInt!
+  lastTrade: BigInt!
+  trackedDay: BigInt!
+}
+
+type DayVolume @entity(immutable: true) {
+  id: Bytes!  # Block Hash of the tracked update
+  dayNumber: BigInt
+  volume24hours: BigDecimal
+}
