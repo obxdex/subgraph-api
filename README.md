@@ -29,21 +29,19 @@ The OBX subgraph has the following entity types:
 
 ### Each trading pair has its own data structure and can be accessed through its respective API endpoint:
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/)
-
-[WMATIC-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/wnatic-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/wmatic-usdc
-[WMATIC-BRZ](https://thegraph.com/hosted-service/subgraph/obxdex/wnatic-brz) - https://api.thegraph.com/subgraphs/name/obxdex/wmatic-brz
-[KRSTM-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/krstm-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/krstm-usdc
-[KRSTM-BRZ](https://thegraph.com/hosted-service/subgraph/obxdex/krstm-brz) - https://api.thegraph.com/subgraphs/name/obxdex/krstm-brz
-[ETH-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/eth-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/eth-usdc
-[ETH-BRZ](https://thegraph.com/hosted-service/subgraph/obxdex/eth-brz) - https://api.thegraph.com/subgraphs/name/obxdex/eth-brz
-[BNB-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/bnb-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/bnb-usdc
-[BNB-BRZ](https://thegraph.com/hosted-service/subgraph/obxdex/bnb-brz) - https://api.thegraph.com/subgraphs/name/obxdex/bnb-brz
-[WBTC-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/wbtc-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/wbtc-usdc
-[WBTC-BRZ](https://thegraph.com/hosted-service/subgraph/obxdex/wbtc-brz) - https://api.thegraph.com/subgraphs/name/obxdex/wbtc-brz
-[LINK-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/link-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/link-usdc
-[USDT-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/usdt-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/usdt-usdc
-[USDC-BRZ](https://thegraph.com/hosted-service/subgraph/obxdex/usdc-brz) - https://api.thegraph.com/subgraphs/name/obxdex/usdc-brz
+* [WMATIC-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/wnatic-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/wmatic-usdc
+* [WMATIC-BRZ](https://thegraph.com/hosted-service/subgraph/obxdex/wnatic-brz) - https://api.thegraph.com/subgraphs/name/obxdex/wmatic-brz
+* [KRSTM-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/krstm-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/krstm-usdc
+* [KRSTM-BRZ](https://thegraph.com/hosted-service/subgraph/obxdex/krstm-brz) - https://api.thegraph.com/subgraphs/name/obxdex/krstm-brz
+* [ETH-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/eth-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/eth-usdc
+* [ETH-BRZ](https://thegraph.com/hosted-service/subgraph/obxdex/eth-brz) - https://api.thegraph.com/subgraphs/name/obxdex/eth-brz
+* [BNB-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/bnb-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/bnb-usdc
+* [BNB-BRZ](https://thegraph.com/hosted-service/subgraph/obxdex/bnb-brz) - https://api.thegraph.com/subgraphs/name/obxdex/bnb-brz
+* [WBTC-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/wbtc-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/wbtc-usdc
+* [WBTC-BRZ](https://thegraph.com/hosted-service/subgraph/obxdex/wbtc-brz) - https://api.thegraph.com/subgraphs/name/obxdex/wbtc-brz
+* [LINK-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/link-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/link-usdc
+* [USDT-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/usdt-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/usdt-usdc
+* [USDC-BRZ](https://thegraph.com/hosted-service/subgraph/obxdex/usdc-brz) - https://api.thegraph.com/subgraphs/name/obxdex/usdc-brz
 
 ## Example Queries
 Here is a sample GraphQL query that retrieves the latest 10 trades of the trading pair ETH-USDC:
