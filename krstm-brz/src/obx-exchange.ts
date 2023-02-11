@@ -22,10 +22,14 @@ export function handleTrade(event: TradeEvent): void {
   let lastTrade = BigInt.fromI32(0);
   let infoEntity = Info.load("01")
   if (infoEntity == null) {
-    infoEntity = new Info("01")
+    infoEntity = new Info("01");
     infoEntity.lastTrackedBlock = BigInt.fromI32(38498660);
     infoEntity.lastTrade = BigInt.fromI32(0);
     infoEntity.lastTrackedTrade = BigInt.fromI32(0);
+    infoEntity.lastPrice = ZERO_BD;
+    infoEntity.last24HourVolume = ZERO_BD;
+    infoEntity.trackedDay = BigInt.fromI32(0);
+    infoEntity.save();
   } else{
     lastTrade = infoEntity.lastTrade.plus(BigInt.fromI32(1));
   }
@@ -88,44 +92,51 @@ export function handleBlock(block: ethereum.Block): void {
     infoEntity.lastTrackedBlock = BigInt.fromI32(38498660);
     infoEntity.lastTrade = BigInt.fromI32(0);
     infoEntity.lastTrackedTrade = BigInt.fromI32(0);
+    infoEntity.lastPrice = ZERO_BD;
+    infoEntity.last24HourVolume = ZERO_BD;
+    infoEntity.trackedDay = BigInt.fromI32(0);
+    infoEntity.save();
   }
   
   let totalVolume = ZERO_BD;
 
-  let tradeEntities = [];
+  let tradeEntities: Trade[] = [];
+
 
   if(block.number >= infoEntity.lastTrackedBlock.plus(BigInt.fromI32(28800))){
-    for (let i = infoEntity.lastTrackedTrade; i <= infoEntity.lastTrade; i = i.plus(BigInt.fromI32(1))) {
-      let numberId = i.toString();
-      let tradeEntity = Trade.load(numberId);
-  
-      if (tradeEntity !== null) {
-        tradeEntities.push(tradeEntity);
+
+    if(infoEntity.lastTrackedTrade != infoEntity.lastTrade){
+      for (let i = infoEntity.lastTrackedTrade; i <= infoEntity.lastTrade; i = i.plus(BigInt.fromI32(1))) {
+        
+        let numberId = i.toString();
+        let tradeEntity = Trade.load(numberId);
+    
+        if (tradeEntity != null) {
+          tradeEntities.push(tradeEntity);
+        }
+
       }
-    }
-    
-    totalVolume = tradeEntities.reduce((acc, tradeEntity) => acc.plus(tradeEntity.volumeInQuote), ZERO_BD);
+      
+      totalVolume = tradeEntities.reduce((acc, tradeEntity) => acc.plus(tradeEntity.volumeInQuote), ZERO_BD);
 
-    infoEntity.last24HourVolume = totalVolume;
-    infoEntity.lastTrackedTrade = infoEntity.lastTrade;
-    infoEntity.lastTrackedBlock = block.number;
+      infoEntity.last24HourVolume = totalVolume;
+      infoEntity.lastTrackedTrade = infoEntity.lastTrade;
+      infoEntity.lastTrackedBlock = block.number;
 
-    let trackedDay = BigInt.fromI32(0);
-    let volumesEntity = DayVolume.load(`Day ${trackedDay}`)
-    
-    if(volumesEntity == null){
-      volumesEntity = new DayVolume(`Day ${trackedDay}`)
-      infoEntity.trackedDay = trackedDay; 
     } else{
-    
-      trackedDay = infoEntity.trackedDay.plus(BigInt.fromI32(1));
-     
-      volumesEntity = new DayVolume(`Day ${trackedDay}`)
+      infoEntity.last24HourVolume = ZERO_BD;
+      infoEntity.lastTrackedTrade = infoEntity.lastTrade;
+      infoEntity.lastTrackedBlock = block.number;
+    }
+      
+      
+      let trackedDay = infoEntity.trackedDay.plus(BigInt.fromI32(1));
+      let volumesEntity = new DayVolume(block.hash)
+      volumesEntity.dayNumber = trackedDay
       volumesEntity.volume24hours = totalVolume;
       volumesEntity.save();
 
-    }
-    
+      
     infoEntity.trackedDay = trackedDay;
 
     infoEntity.save();
