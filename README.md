@@ -48,8 +48,11 @@ The OBX subgraph has the following entity types:
 - id
 - otype - the order type (BUY,SELL)
 - price
+- amountGet - amount of token received for the maker
+- amountGive - amount of token given from the taker
 - timestamp
 - transactionHash
+- blockNumber
 - userFill - the taker of the order
 - userFilled - the maker of the order
 - volumeInQuote - volume in quote token at the order execution
@@ -59,14 +62,16 @@ The OBX subgraph has the following entity types:
 - lastTrackedBlock
 - lastTrade
 - lastTrackedTrade
+- lastPrice
 - last24HourVolume
 - trackedDay
 
 ### DayVolume: contains the 24-hour volume for each day on that pair. It includes the following fields:
 - id
+- dayNumber
 - volume24hours
 
-### Each trading pair has its own data structure and can be accessed through its respective API endpoint:
+### Each trading pair has its own data using this structure and can be accessed through its respective API endpoint:
 
 * [WMATIC-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/wnatic-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/wmatic-usdc
 * [WMATIC-BRZ](https://thegraph.com/hosted-service/subgraph/obxdex/wnatic-brz) - https://api.thegraph.com/subgraphs/name/obxdex/wmatic-brz
@@ -83,7 +88,7 @@ The OBX subgraph has the following entity types:
 * [USDC-BRZ](https://thegraph.com/hosted-service/subgraph/obxdex/usdc-brz) - https://api.thegraph.com/subgraphs/name/obxdex/usdc-brz
 
 ## Example Queries
-Here is a sample GraphQL query that retrieves the latest 10 trades of the trading pair ETH-USDC:
+Here is a sample GraphQL query that retrieves the latest 10 trades of a trading pair:
 ```
 query {
   trades(first: 10, orderBy: timestamp, orderDirection: desc) {
