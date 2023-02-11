@@ -2,6 +2,45 @@
 
 The OBX Subgraph is an indexer for the OBX decentralized exchange. It provides a scalable and efficient way to access trade and volume data on the OBX exchange. The data is available in the form of GraphQL API, making it easy to query the data and integrate with other applications.
 
+# OBX Subgraph Installation Steps
+
+## Prerequisites
+- npm 
+- yarn
+- the-graph-cli
+
+## Installation
+1. Clone the OBX subgraph repository: 
+
+```
+git clone https://github.com/obxdex/subgraph-api.git
+```
+2. Go to the specific subgraph folder, for example `wmatic-usdc`: 
+```
+cd subgraph-api/wmatic-usdc
+```
+3. Run the following command to generate the graph code:
+```
+graph codegen
+```
+4. Build the subgraph:
+```
+graph build
+```
+5. Deploy the subgraph:
+```
+graph deploy --product hosted-service <name of subgraph>
+```
+
+Note: you will need authentication
+
+use
+```
+graph auth --product hosted-service <your token>
+```
+
+Note 2: Changes can be made in the `subgraph.yaml` , `schema.graphql` and `src/obx-exchange.ts` files for customizations.
+
 ## Entity Types
 The OBX subgraph has the following entity types:
 
