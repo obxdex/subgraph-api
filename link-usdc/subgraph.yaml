@@ -1,0 +1,28 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: OBXExchange
+    network: matic
+    source:
+      address: "0x276274CC17800f440C87Dd78ABe545Aa65d7f367"
+      abi: OBXExchange
+      startBlock : 38448660
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Trade
+        - Info
+        - DayVolume
+      abis:
+        - name: OBXExchange
+          file: ./abis/OBXExchange.json
+      eventHandlers:
+        - event: Trade(uint256,indexed uint64,uint256,uint256,indexed address,indexed address,uint256)
+          handler: handleTrade
+      blockHandlers:
+        - handler: handleBlock
+      file: ./src/obx-exchange.ts
