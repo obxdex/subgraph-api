@@ -29,6 +29,8 @@ The OBX subgraph has the following entity types:
 
 ### Each trading pair has its own data structure and can be accessed through its respective API endpoint:
 
+* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/)
+
 [WMATIC-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/wnatic-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/wmatic-usdc
 [WMATIC-BRZ](https://thegraph.com/hosted-service/subgraph/obxdex/wnatic-brz) - https://api.thegraph.com/subgraphs/name/obxdex/wmatic-brz
 [KRSTM-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/krstm-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/krstm-usdc
@@ -63,7 +65,7 @@ query {
 The following is an example query that returns the total volume traded in a OBX exchange pair in the last 24 hours:
 ```
 query {
-  info(id: "01") {
+  infos {
     last24HourVolume
   }
 }
