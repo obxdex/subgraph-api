@@ -48,8 +48,8 @@ The OBX subgraph has the following entity types:
 - id
 - otype - the order type (BUY,SELL)
 - price
-- amountGet - amount of token received for the maker
-- amountGive - amount of token given from the taker
+- amountGet - amount of token received to the taker in the order
+- amountGive - amount of token given from the taker in the order
 - timestamp
 - transactionHash
 - blockNumber
@@ -60,8 +60,8 @@ The OBX subgraph has the following entity types:
 ### Info: contains various statistics about the OBX exchange choosen pair. It includes the following fields:
 - id
 - lastTrackedBlock
-- lastTrade
-- lastTrackedTrade
+- lastTrade - last trade id
+- lastTrackedTrade 
 - lastPrice
 - last24HourVolume
 - trackedDay
@@ -112,5 +112,3 @@ query {
   }
 }
 ```
-
-
