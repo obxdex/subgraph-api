@@ -73,8 +73,8 @@ The OBX subgraph has the following entity types:
 
 ### Each trading pair has its own data using this structure and can be accessed through its respective API endpoint:
 
-* [WMATIC-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/wnatic-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/wmatic-usdc
-* [WMATIC-BRZ](https://thegraph.com/hosted-service/subgraph/obxdex/wnatic-brz) - https://api.thegraph.com/subgraphs/name/obxdex/wmatic-brz
+* [WMATIC-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/wmatic-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/wmatic-usdc
+* [WMATIC-BRZ](https://thegraph.com/hosted-service/subgraph/obxdex/wmatic-brz) - https://api.thegraph.com/subgraphs/name/obxdex/wmatic-brz
 * [KRSTM-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/krstm-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/krstm-usdc
 * [KRSTM-BRZ](https://thegraph.com/hosted-service/subgraph/obxdex/krstm-brz) - https://api.thegraph.com/subgraphs/name/obxdex/krstm-brz
 * [ETH-USDC](https://thegraph.com/hosted-service/subgraph/obxdex/eth-usdc) - https://api.thegraph.com/subgraphs/name/obxdex/eth-usdc
